@@ -6,10 +6,7 @@ vector<int> rightNextGreatestFrequency(vector<int> & a, int n){
      unordered_map<int, int>mpp;
      for(int i=0;i<n;i++){
         mpp[a[i]]++;
-     }
-
-
-     
+     } 
      for(int i=n-1;i>=0;i--){
         if(s.size()==0){
             v.push_back(-1);
