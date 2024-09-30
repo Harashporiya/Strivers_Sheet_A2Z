@@ -31,7 +31,7 @@ int main(){
         mpp[a[i-1]]++;
     }
     for(int i=1;i<=n;i++){
-        if(mpp[i]==2){
+        if(mpp[i]<=2){
             repeating=i;
         }else if(mpp[i]==0){
             missing=i;
