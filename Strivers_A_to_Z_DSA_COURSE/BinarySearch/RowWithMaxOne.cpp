@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+// solve question help the lower bound and upper bound , and frist occurence
 int lowerBound(vector<int> &a, int n, int x){
     int low=0;
     int high=n-1;
