@@ -30,9 +30,11 @@ class Distance
     }
     return res1;
   }
-
+   
   void display(){
-    cout<<feet<<"'"<<inch<<endl;
+    int convertFeetCm = feet * 30;
+    int inchConvertCm = inch * 2.5;
+    cout<<convertFeetCm / 100<<"'"<<inchConvertCm/100<<endl;
   }
 };
 int main()
