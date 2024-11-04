@@ -23,9 +23,10 @@ bool isValid(vector<int> &a, int n, int s, int mid){
     }
       if(cntStud<=s){
             return true;
-        }else if(cntStud>s){
-        return false;
         }
+        // else if(cntStud>s){
+        // return false;
+        // }
         return false;
 }
 int painterPartition(vector<int> &a, int n, int s){

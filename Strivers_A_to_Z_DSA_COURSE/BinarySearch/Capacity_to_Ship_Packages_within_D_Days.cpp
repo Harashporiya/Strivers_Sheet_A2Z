@@ -28,7 +28,7 @@ int findDays(int a[], int mid, int n){
   
 }
 int capacity(int a[], int n, int d){
-   int low = maxElements(a,n);
+   int low =  maxElements(a,n);
    int high = sumOfArrayElements(a,n);
    while(low<=high){
     int mid = low+(high-low)/2;
