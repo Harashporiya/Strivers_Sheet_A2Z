@@ -1,0 +1,11 @@
+Heap they are two types-> 1. min, 2. max
+----> heap use condaition for question m bola hai to k, and smollest and largest.
+----> k + smollest question m bola hai to tum bnave ga max heap.
+----> k + largest  question m bola hai to tum bnave ga min heap.
+
+CODE-----> syntax
+
+maxHeap --->  priority_queue<int> maxHeap;
+
+
+minHeap ---> priority_queue<int, vector<int>, greater<int>> minHeap;
