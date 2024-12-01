@@ -10,6 +10,7 @@ int kthSmollestElements(vector<int> &a, int n, int k){
     }
     return minHeap.top();
 }
+
 int main(){
     int n;
     cin>>n;
