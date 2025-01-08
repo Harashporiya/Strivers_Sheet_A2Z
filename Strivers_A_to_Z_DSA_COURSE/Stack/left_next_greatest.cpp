@@ -3,8 +3,8 @@ using namespace std;
 vector<int> leftNextgreatest(vector<int> & a, int n){
      vector<int> v;
      stack<int> s;
-     for(int i=0;i<n;i++){
-        if(s.size()==0){
+    for(int i=0;i<n;i++){
+        if(s.empty()){
             v.push_back(-1);
         }else if(s.size()>0 && s.top()>a[i]){
             v.push_back(s.top());
@@ -18,11 +18,11 @@ vector<int> leftNextgreatest(vector<int> & a, int n){
                 v.push_back(s.top());
             }
         }
-
         s.push(a[i]);
-     }
-     return v;
+    }
+    return v;
 }
+
 int main(){
     int n;
     cin>>n;

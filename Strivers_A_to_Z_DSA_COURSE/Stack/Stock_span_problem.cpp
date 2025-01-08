@@ -19,6 +19,7 @@ vector<int> stockSpanProblem(vector<int> & a, int n){
                 v.push_back(s.top().second);
             }
         }
+        
 
         s.push({a[i],i});
         ans.push_back(i-v[i]);

@@ -24,6 +24,7 @@ vector<int> rightNextGreatest(vector<int> & a, int n){
      return v;
      
 }
+
 int main(){
     int n;
     cin>>n;

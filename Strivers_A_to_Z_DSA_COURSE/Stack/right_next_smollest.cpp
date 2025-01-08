@@ -12,6 +12,7 @@ vector<int> rightNextSmollest(vector<int> & a, int n){
             while(s.size()>0 && s.top()>=a[i]){
                 s.pop();
             }
+            
             if(s.size()==0){
                 v.push_back(-1);
             }else{
