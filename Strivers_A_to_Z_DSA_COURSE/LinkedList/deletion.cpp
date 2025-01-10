@@ -37,6 +37,25 @@ Node* lastNodeRemove(Node* head){
     temp->next=NULL;
     return head;
 }
+Node* removek(Node* head, int k){
+    if(head==NULL){
+        return head;
+    }
+    Node* temp=head;
+    int count=0;
+    Node* prevs = NULL;
+    while(temp!=NULL){
+        count++;
+        if(count==k){
+          prevs->next=prevs->next->next;
+          free(temp);
+          break;
+        }
+        prevs=temp;
+        temp=temp->next;
+    }
+    return head;
+}
 int main(){
    int n;
    cin>>n;
@@ -56,6 +75,7 @@ int main(){
    printLinkedList(head);
    cout<<endl;
 //   head=removeHead(head);
-    head=lastNodeRemove(head);
+  //  head=lastNodeRemove(head);
+    head=removek(head,2);
   printLinkedList(head);
 }
