@@ -25,6 +25,18 @@ Node* removeHead(Node* head){
     delete temp;
     return head;
 }
+Node* lastNodeRemove(Node* head){
+    if(head==NULL || head->next==NULL){
+        return NULL;
+    }
+    Node* temp=head;
+    while(temp->next->next!=NULL){
+        temp=temp->next;
+    }
+    delete temp->next;
+    temp->next=NULL;
+    return head;
+}
 int main(){
    int n;
    cin>>n;
@@ -43,6 +55,7 @@ int main(){
    }
    printLinkedList(head);
    cout<<endl;
-  head=removeHead(head);
+//   head=removeHead(head);
+    head=lastNodeRemove(head);
   printLinkedList(head);
 }
