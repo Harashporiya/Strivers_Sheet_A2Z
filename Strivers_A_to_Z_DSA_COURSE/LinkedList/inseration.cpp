@@ -44,6 +44,19 @@ Node *indexInseration(Node *head, int data, int index){
 
      return head;
 }
+Node* inserationAtValue(Node* head, int el, int val){
+    
+     Node *ptr=head;
+     while(ptr->next!=NULL){
+        if(ptr->next->data==val){
+           Node *temp=new Node(el);
+           ptr->next=temp;
+           break;
+        }
+        ptr=ptr->next;
+     }
+     return head;
+}
 int main(){
     int n;
     cin>>n;
@@ -62,6 +75,7 @@ int main(){
     }
     //head=firstInseration(head, 12);
   //  head=lastInseration(head,100);
-    head=indexInseration(head,0,2);
+   // head=indexInseration(head,0,2);
+   head=inserationAtValue(head,100,5);
     printLinked(head);
 }
