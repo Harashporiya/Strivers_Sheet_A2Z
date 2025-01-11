@@ -81,6 +81,20 @@ Node* deleteK(Node* head, int k){
     delete temp;
     return head;
 }
+void deleteValueNode(Node* temp){
+    Node* prev = temp->back;
+    Node* front = temp->next;
+
+    if(front==NULL){
+        prev->next=NULL;
+        temp->back=NULL;
+        free(temp);
+        return;
+    }
+    prev->next=front;
+    front->back=prev;
+    free(temp);
+}
 int main(){
     int n;
     cin>>n;
@@ -100,6 +114,7 @@ int main(){
     }
    //head=deleteNode(head);
    //head=deleteLastNode(head);
-   head=deleteK(head,1);
+   //head=deleteK(head,1);
+   deleteValueNode(head->next->next);
     printLinked(head);
 }
