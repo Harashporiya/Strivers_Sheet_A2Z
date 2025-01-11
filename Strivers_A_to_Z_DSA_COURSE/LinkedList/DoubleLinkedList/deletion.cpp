@@ -52,6 +52,35 @@ Node* deleteLastNode(Node* head){
     delete temp;
     return head;
 }
+Node* deleteK(Node* head, int k){
+     if(head==NULL){
+        return NULL;
+    }
+    Node* temp=head;
+    int count=0;
+    Node* prev;
+    while(temp!=NULL){
+        count++;
+        if(count==k){
+           break;
+        }
+        temp=temp->next;
+    }
+     prev=temp->back;
+    Node* front=temp->next;
+    if(prev==NULL && front==NULL){
+        return NULL;
+    }else if(prev==NULL){
+        return deleteNode(head);
+    }else if(front==NULL){
+        return deleteLastNode(head);
+    }
+    prev->next=front;
+    front->back=prev;
+
+    delete temp;
+    return head;
+}
 int main(){
     int n;
     cin>>n;
@@ -70,6 +99,7 @@ int main(){
         temp=newNode;
     }
    //head=deleteNode(head);
-   head=deleteLastNode(head);
+   //head=deleteLastNode(head);
+   head=deleteK(head,1);
     printLinked(head);
 }
