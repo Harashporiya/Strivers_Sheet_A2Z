@@ -43,6 +43,20 @@ Node* insertTail(Node* head, int val){
 
     return head;
 }
+Node* insertBeforeTail(Node* head, int val){
+    Node* newTail = new Node(val);
+    Node* temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    Node* prev = temp->back;
+    prev->next=newTail;
+    temp->back=newTail;
+    newTail->back=prev;
+    newTail->next=temp;
+
+    return head;
+}
 int main(){
     int n;
     cin>>n;
@@ -61,6 +75,7 @@ int main(){
         temp=newNode;
     }
    //head=insertBeforeHead(head,0);
-   head=insertTail(head,0); 
+   //head=insertTail(head,0); 
+   head=insertBeforeTail(head,0);
     printLinked(head);
 }
