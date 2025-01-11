@@ -75,6 +75,17 @@ Node* insertBeforeK(Node* head, int val, int k){
     newNode->back=prev;
     return head;
 }
+void insertBeforeGivenNode(Node* node, int val){
+   Node* newNode = new Node(val);
+   Node* temp =node;
+   Node* prev= node->back;
+   prev->next=newNode;
+   newNode->next=temp;
+   newNode->back=prev;
+   temp->back=newNode;
+
+   
+}
 int main(){
     int n;
     cin>>n;
@@ -95,6 +106,7 @@ int main(){
    //head=insertBeforeHead(head,0);
    //head=insertTail(head,0); 
    //head=insertBeforeTail(head,0);
-   head=insertBeforeK(head,0,5);
+   //head=insertBeforeK(head,0,5);
+   insertBeforeGivenNode(head->next->next,0);
     printLinked(head);
 }
