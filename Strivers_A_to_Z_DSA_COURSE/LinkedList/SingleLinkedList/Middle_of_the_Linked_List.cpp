@@ -17,22 +17,29 @@ void printLinked(Node *head){
     cout<<endl;
 }
 Node* middleNode(Node* head){
-    Node* temp=head;
-    int cnt=0;
-    while(temp!=NULL){
-        cnt++;
-        temp=temp->next;
-    }
-    int mid = (cnt/2)+1;
-    temp=head;
-    while(temp!=NULL){
-        mid--;
-        if(mid==0){
-            break;
+    // Node* temp=head;
+    // int cnt=0;
+    // while(temp!=NULL){
+    //     cnt++;
+    //     temp=temp->next;
+    // }
+    // int mid = (cnt/2)+1;
+    // temp=head;
+    // while(temp!=NULL){
+    //     mid--;
+    //     if(mid==0){
+    //         break;
+    //     }
+    //     temp=temp->next;
+    // }
+    // return temp;
+        Node* fast = head;
+        Node* slow = head;
+        while(fast!=NULL && fast->next!=NULL){
+          fast=fast->next->next;
+          slow=slow->next;
         }
-        temp=temp->next;
-    }
-    return temp;
+        return slow;
 }
 int main(){
     int n;
