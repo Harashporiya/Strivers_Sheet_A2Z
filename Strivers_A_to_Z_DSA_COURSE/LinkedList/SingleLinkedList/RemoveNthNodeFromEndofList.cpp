@@ -40,31 +40,53 @@ Node *removeNthFromEnd(Node *head, int n)
         return head;
     }
 
-    Node *reversedHead = reverseLinkedList(head);
-    Node *temp = reversedHead;
-    Node *prev = NULL;
-    int cnt = 1;
-    if (n == 1)
-    {
-        reversedHead = reversedHead->next;
-        delete temp;
+    // Node *reversedHead = reverseLinkedList(head);
+    // Node *temp = reversedHead;
+    // Node *prev = NULL;
+    // int cnt = 1;
+    // if (n == 1)
+    // {
+    //     reversedHead = reversedHead->next;
+    //     delete temp;
+    // }
+    // else
+    // {
+    //     while (temp != NULL)
+    //     {
+    //         if (cnt == n)
+    //         {
+    //             prev->next = temp->next;
+    //             delete temp;
+    //             break;
+    //         }
+    //         prev = temp;
+    //         temp = temp->next;
+    //         cnt++;
+    //     }
+    // }
+    // return reverseLinkedList(reversedHead);
+
+    int cnt=0;
+    Node* temp=head;
+    while(temp!=NULL){
+        cnt++;
+        temp=temp->next;
     }
-    else
-    {
-        while (temp != NULL)
-        {
-            if (cnt == n)
-            {
-                prev->next = temp->next;
-                delete temp;
-                break;
-            }
-            prev = temp;
-            temp = temp->next;
-            cnt++;
+    int value = cnt-n+1;
+    temp=head;
+    int count=0;
+    Node* prevs = NULL;
+    while(temp!=NULL){
+        count++;
+        if(count==value){
+          prevs->next=prevs->next->next;
+          free(temp);
+          break;
         }
+        prevs=temp;
+        temp=temp->next;
     }
-    return reverseLinkedList(reversedHead);
+    return head;
 }
 int main()
 {
@@ -87,6 +109,6 @@ int main()
         }
         temp = newNode;
     }
-    head = removeNthFromEnd(head,2);
+    head = removeNthFromEnd(head,1);
     printLinked(head);
 }
