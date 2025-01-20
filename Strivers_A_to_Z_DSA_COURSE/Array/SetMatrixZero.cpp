@@ -42,19 +42,21 @@ int main() {
         for (int j = 0; j < m; j++) {
            if(a[i][j]==0){
             for(int k=0;k<m;k++){
-               if(a[i][k]!=0){
+              if(a[i][k]!=0){
                 a[i][k]=-1;
-               }
+              }
             }
 
+
             for(int l=0;l<n;l++){
-               if(a[l][i]!=0){
+              if(a[l][i]!=0){
                 a[l][i]=-1;
-               }
+              }
             }
            }
         }
     }
+
     for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
         if (a[i][j] == -1) {
