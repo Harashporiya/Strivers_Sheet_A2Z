@@ -10,15 +10,12 @@ class MyStack{
         size=1000;
         arr=new int[size];
     }
-
     bool isEmpty(){
       return top==-1;
     }
-
     bool isFull(){
         return top==size-1;
     }
-
     void push(int x){
         top+=1;
         arr[top]=x;
@@ -35,16 +32,13 @@ class MyStack{
     int Size(){
         return top+1;
     }
-
     void diplay(){
         for(int i=0;i<=top;i++){
             cout<<arr[i]<<" ";
         }
         cout<<endl;
     }
-
     
-
 };
 int main(){
    MyStack s;
