@@ -2,7 +2,7 @@
 using namespace std;
 vector<int> leftNextSmollest(vector<int> & a, int n){
      vector<int> left;
-     int psudoIndex = -1;
+     int psudoIndex = n;
      stack<pair<int, int>> s;
      for(int i=0;i<n;i++){
         if(s.size()==0){
@@ -26,7 +26,7 @@ vector<int> leftNextSmollest(vector<int> & a, int n){
 }
 vector<int> rightNextSmollest(vector<int> & a, int n){
      vector<int> right;
-     int psudoIndex=-1;
+     int psudoIndex=n;
      stack<pair<int, int>> s;
      for(int i=n-1;i>=0;i--){
         if(s.size()==0){
@@ -77,6 +77,6 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-  int ans = maxHistogrem(a,n);
+  int ans = rightNextSmollest(a,n);
   cout<<ans;
 }
