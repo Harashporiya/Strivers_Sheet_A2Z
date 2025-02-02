@@ -2,23 +2,40 @@
 using namespace std;
 bool isNStraightHand(vector<int>& hand, int groupSize) {
    unordered_map<int, int> mpp;
+   priority_queue<int, vector<int>, greater<int>> minHeap;
    for(int i=0;i<hand.size();i++){
     mpp[hand[i]]++;
    }
 
-   sort(hand.begin(),hand.end());
+   for(auto card:mpp){
+    minHeap.push(card.first);
+   }
 
-   for(int card:hand){
-    if(mpp[card]>0){
+//    sort(hand.begin(),hand.end());
+
+//    for(int card:hand){
+//     if(mpp[card]>0){
+//         for(int i=0;i<groupSize;i++){
+//             if(mpp[card + i]==0){
+//                 return false;
+//             }
+//             mpp[card+i]--;
+//         }
+//     }
+//    }
+     while(!minHeap.empty()){
+        int start = minHeap.top();
         for(int i=0;i<groupSize;i++){
-            if(mpp[card + i]==0){
+            if(mpp[start+i]==0){
                 return false;
             }
-            mpp[card+i]--;
+            mpp[start+i]--;
+            if(mpp[start+i]==0){
+                minHeap.pop();
+            }
         }
-    }
-   }
-   return false;
+     }
+   return true;
 }
 
 int main(){
