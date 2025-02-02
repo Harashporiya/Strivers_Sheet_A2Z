@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-int kthSmollestElements(vector<int> &a, int n, int k){
-    priority_queue<int, vector<int>, greater<int>> minHeap;
+int kthlargest(vector<int>& hand, int groupSize) {
+   priority_queue<int, vector<int>, greater<int>> minHeap;
     for(int i=0;i<n;i++){
         minHeap.push(a[i]);
         if(minHeap.size()>k){
@@ -20,6 +20,9 @@ int main(){
     }
     int k;
     cin>>k;
-     int res =  kthSmollestElements(a,n,k);
+     int res = kthlargest(a,n,k);
      cout<<res;
+    
+
+
 }
