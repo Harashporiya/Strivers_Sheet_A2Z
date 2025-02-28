@@ -73,9 +73,9 @@ int main(){
         }
         temp=newNode;
     }
-    //head=firstInseration(head, 12);
-  //  head=lastInseration(head,100);
-   // head=indexInseration(head,0,2);
-   head=inserationAtValue(head,100,5);
+    // head=firstInseration(head, 12);
+//    head=lastInseration(head,100);
+   head=indexInseration(head,0,2);
+//    head=inserationAtValue(head,100,5);
     printLinked(head);
 }
