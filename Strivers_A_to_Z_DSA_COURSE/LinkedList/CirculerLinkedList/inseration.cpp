@@ -53,6 +53,23 @@ Node* insertAtTail(Node* head, int value){
 
    return head;
 }
+Node* insertAtNth(Node* head, int value, int k){
+    Node* temp = head;
+
+   Node* newNode = new Node(value);
+    int cnt=1;
+    while(temp->next!=head && cnt<k-1){
+        temp=temp->next;
+         cnt++;
+    }
+        if(cnt==k-1){
+        newNode->next = temp->next;
+        temp->next = newNode;
+        }
+
+    return head;
+}
+
 int main(){
     int n;
     cin>>n;
@@ -72,7 +89,8 @@ int main(){
     if(temp != NULL) {
         temp->next = head;
     }
-   head = insertAtHead(head, 0);
-   head=insertAtTail(head,100);
+//    head = insertAtHead(head, 0);
+//    head=insertAtTail(head,100);
+   head =insertAtNth(head,100,3);
     printLinkedList(head);
 }
