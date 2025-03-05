@@ -30,6 +30,18 @@ Node* deleteAtFirst(Node* head){
    delete head;
     return p;
 }
+Node* deleteAtLast(Node* head){
+    Node* temp = head;
+    Node* back=NULL;
+    while(temp->next!=head){
+        back=temp;
+        temp=temp->next;
+    }
+   Node* p = temp;
+   back->next = head;
+   delete p;
+    return head;
+}
 int main(){
     int n;
     cin>>n;
@@ -49,6 +61,7 @@ int main(){
     if(temp != NULL) {
         temp->next = head;
     }
-    head=deleteAtFirst(head);
+    // head=deleteAtFirst(head);
+    head=deleteAtLast(head);
     printLinkedList(head);
 }
