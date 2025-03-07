@@ -63,6 +63,25 @@ Node* deleteAtNth(Node* head, int k){
     }
     return head;
 }
+Node* deleteAtValue(Node* head, int k){
+    Node* temp=head;
+    Node* prev = NULL;
+    while(temp->next!=head){
+        if(temp->data==k){
+            break;
+        }
+        prev=temp;
+        temp=temp->next;
+    }
+
+    Node* p = temp->next;
+    prev->next = p;
+    p->back = prev;
+
+    delete temp;
+    return head;
+
+}
 int main(){
     int n;
     cin>>n;
@@ -87,6 +106,7 @@ int main(){
 
 //   head=deleteAtHead(head);
     //  head=deleteAttail(head);
-    head=deleteAtNth(head,3);
+    // head=deleteAtNth(head,3);
+    head=deleteAtValue(head,6);
     printLinkedList(head);
 }
