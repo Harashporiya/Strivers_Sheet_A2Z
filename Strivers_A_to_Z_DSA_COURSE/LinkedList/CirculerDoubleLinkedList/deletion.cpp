@@ -32,6 +32,22 @@ Node* deleteAtHead(Node* head){
     delete head;
     return temp;
 }
+Node* deleteAttail(Node* head){
+    Node* temp=head;
+   Node* prev=NULL;
+    while(temp->next!=head){
+        prev=temp;
+        temp=temp->next;
+    }
+
+    Node* p = temp->next;
+    prev->next = p;
+    p->back = prev;
+    delete temp;
+    
+
+    return head;
+}
 int main(){
     int n;
     cin>>n;
@@ -54,6 +70,7 @@ int main(){
          head->back = temp;
     }
 
-  head=deleteAtHead(head);
+//   head=deleteAtHead(head);
+     head=deleteAttail(head);
     printLinkedList(head);
 }
