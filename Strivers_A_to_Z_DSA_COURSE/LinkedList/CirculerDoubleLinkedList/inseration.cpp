@@ -66,6 +66,25 @@ Node* insertAtNthNode(Node* head, int value, int k){
 
     return head;
 }
+Node* insertAtGivenValue(Node* head, int value, int k){
+    Node* newNode = new Node(value);
+    Node* temp = head;
+    Node* p=NULL;
+    while(temp->next!=head){
+        if(temp->data == k){
+            break;
+        }
+        p=temp;
+        temp=temp->next;
+    }
+       p->next = newNode;
+       newNode->next = temp;
+       newNode->back = temp;
+    //    temp->next = newNode;
+    
+
+    return head;
+}
 int main(){
     int n;
     cin>>n;
@@ -89,6 +108,7 @@ int main(){
 
     // head=insertAtFirst(head,100);
     // head=insertAtLast(head,100);
-    head=insertAtNthNode(head,100,4);
+    // head=insertAtNthNode(head,100,4);
+    head=insertAtGivenValue(head,100,4);
     printLinkedList(head);
 }
