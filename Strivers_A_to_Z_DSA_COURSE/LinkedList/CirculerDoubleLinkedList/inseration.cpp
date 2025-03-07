@@ -104,6 +104,7 @@ int main(){
     }
     if(temp != NULL) {
         temp->next = head;
+         head->back = temp;
     }
 
     // head=insertAtFirst(head,100);
