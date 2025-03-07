@@ -12,10 +12,15 @@ class Node{
     }
 };
 void printLinkedList(Node* head){
-    while(head!=NULL){
-        cout<<head->data<<" ";
-        head=head->next;
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+        if(temp==head){
+            break;
+        }
     }
+    cout<<endl;
 }
 int main(){
     int n;
@@ -33,6 +38,9 @@ int main(){
             newNode->back = temp;
         }
         temp=newNode;
+    }
+    if(temp != NULL) {
+        temp->next = head;
     }
     printLinkedList(head);
 }
