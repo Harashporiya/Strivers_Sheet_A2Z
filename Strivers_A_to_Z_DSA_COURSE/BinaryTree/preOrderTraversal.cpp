@@ -16,9 +16,22 @@ void preOrder(Node* root){
     if(root==NULL){
         return;
     }
-    cout<<root->data<<" ";
-    preOrder(root->left);
-    preOrder(root->right);
+    stack<Node*> st;
+    // cout<<root->data<<" ";
+    // preOrder(root->left);
+    // preOrder(root->right);
+    st.push(root);
+    while(!st.empty()){
+        root = st.top();
+        st.pop();
+        cout<<root->data<<" ";
+        if(root->right!=NULL){
+            st.push(root->right);
+        }
+        if(root->left!=NULL){
+            st.push(root->left);
+        }
+    }
 }
 int main(){
    Node* root = new Node(10);
