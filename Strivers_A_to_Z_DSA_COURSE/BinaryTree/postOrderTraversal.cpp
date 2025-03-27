@@ -16,9 +16,27 @@ void postOrder(Node* root){
     if(root==NULL){
         return;
     }
-    postOrder(root->left);
-    postOrder(root->right);
-    cout<<root->data<<" ";
+    stack<Node*> st1,st2;
+    // postOrder(root->left);
+    // postOrder(root->right);
+    // cout<<root->data<<" ";
+    Node* node=root;
+    st1.push(root);
+    while(!st1.empty()){
+        root=st1.top();
+        st1.pop();
+        st2.push(root);
+       if(root->left!=NULL){
+        st1.push(root->left);
+       }
+        if(root->right!=NULL){
+        st1.push(root->right);
+       }
+    }
+    while(!st2.empty()){
+        cout<<st2.top()->data<<" ";
+        st2.pop();
+    }
 }
 int main(){
    Node* root = new Node(10);
