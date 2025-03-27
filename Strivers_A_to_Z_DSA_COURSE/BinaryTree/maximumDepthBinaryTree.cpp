@@ -16,26 +16,31 @@ int maximumDepth(Node* root){
     if(root==NULL){
         return 0;
     }
-    int cnt=0;
-    queue<Node*> q;
-    q.push(root);
-    while(!q.empty()){
-        int size=q.size();
+    // int cnt=0;
+    // queue<Node*> q;
+    // q.push(root);
+    // while(!q.empty()){
+    //     int size=q.size();
        
-        for(int i=0;i<size;i++){
-            Node* node = q.front();
-            q.pop();
-            if(node->left !=NULL){
-                q.push(node->left);
-            }
-            if(node->right!=NULL){
-                q.push(node->right);
-            }
+    //     for(int i=0;i<size;i++){
+    //         Node* node = q.front();
+    //         q.pop();
+    //         if(node->left !=NULL){
+    //             q.push(node->left);
+    //         }
+    //         if(node->right!=NULL){
+    //             q.push(node->right);
+    //         }
         
-        }
-        cnt++;
-    }
-    return cnt;
+    //     }
+    //     cnt++;
+    // }
+    // return cnt;
+
+    int lh=maximumDepth(root->left);
+    int rh=maximumDepth(root->right);
+
+    return 1+max(lh,rh);
    
 }
 int main(){
