@@ -16,9 +16,23 @@ void inOrder(Node* root){
     if(root==NULL){
         return;
     }
-    inOrder(root->left);
-    cout<<root->data<<" ";
-    inOrder(root->right);
+    stack<Node*> st;
+    // inOrder(root->left);
+    // cout<<root->data<<" ";
+    // inOrder(root->right);
+    Node* node=root;
+    while(true){
+       if(node!=NULL){
+        st.push(node);
+        node=node->left;
+       }else{
+        if(st.empty()==true) break;
+        node=st.top();
+        st.pop();
+        cout<<node->data<<" ";
+        node=node->right;
+       }
+    }
 }
 int main(){
    Node* root = new Node(10);
