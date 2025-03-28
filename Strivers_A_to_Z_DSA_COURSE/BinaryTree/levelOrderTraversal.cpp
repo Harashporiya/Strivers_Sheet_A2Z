@@ -35,6 +35,7 @@ vector<vector<int>> levelOrder(Node* root){
         }
         ans.push_back(level);
     }
+    reverse(ans.begin(),ans.end());
     return ans;
    
 }
@@ -52,10 +53,14 @@ int main(){
    root->right->right->right = new Node(8);
 
    vector<vector<int>> ans = levelOrder(root); 
+     cout<<"[ ";
      for (const auto& level : ans) {
+       cout<<"[ ";
         for (int val : level) {
             cout << val << " ";
         }
+        cout<<"]";
         // cout << endl;
     }
+    cout<<"]";
 }
