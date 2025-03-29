@@ -39,21 +39,21 @@ vector<int> sameTree(Node* root){
 }
 int preOrder(Node* root1, Node* root2){
     if(root1==NULL|| root2==NULL){
-        return 0;
+        return (root1==root2);
     }
-    vector<int> q = sameTree(root1);
-    vector<int> p = sameTree(root2);
+    // vector<int> q = sameTree(root1);
+    // vector<int> p = sameTree(root2);
 
-    if(p.size()!=q.size()){
-        return 0;
-    }
+    // if(p.size()!=q.size()){
+    //     return 0;
+    // }
 
-    for(int i=0;i<q.size();i++){
-        if(q[i]!=p[i]){
-            return 0;
-        }
-    }
-  return 1;
+    // for(int i=0;i<q.size();i++){
+    //     if(q[i]!=p[i]){
+    //         return 0;
+    //     }
+    // }
+  return (root1->data == root2->data) && preOrder(root1->left, root1->left) && preOrder(root1->right, root1->right);
     
 }
 int main(){
