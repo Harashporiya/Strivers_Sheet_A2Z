@@ -4,7 +4,7 @@ string postfixToInfix(string s){
     stack<string> st;
     for(char ch:s){
         if((ch>='A'&&ch<='Z')||(ch>='a'&&ch<='z')||(ch>='0'&&ch<='9')){
-            st.push(ch);
+            st.push(string(1,ch));
         }else{
             string t1=st.top();
             st.pop();
@@ -14,7 +14,7 @@ string postfixToInfix(string s){
             st.push(result);
         }
     }
-    return st.top()
+    return st.top();
 }
 int main(){
     string str;
