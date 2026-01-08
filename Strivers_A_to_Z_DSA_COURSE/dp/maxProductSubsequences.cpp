@@ -59,9 +59,23 @@ int f(int i,int j,vector<int>& nums1, vector<int>& nums2,vector<vector<int>> &dp
         return dp[i][j]=max({take,notTake1,notTake2});
     }
 int maxDotProduct(vector<int>& nums1, vector<int>& nums2) {
-        vector<vector<int>> dp(nums1.size(),vector<int>(nums2.size(),-1));
-       return f(0,0,nums1,nums2,dp);
-}
+        vector<vector<int>> dp(nums1.size()+1,vector<int>(nums2.size()+1,INT_MIN));
+
+        for(int i=nums1.size()-1;i>=0;i--){
+            for(int j=nums2.size()-1;j>=0;j--){
+                int take=nums1[i]*nums2[j];
+                if(dp[i+1][j+1]!=INT_MIN){
+                    take +=max(0, dp[i+1][j+1]);
+                }
+
+                int notTake1=dp[i][j+1];
+                int notTake2=dp[i+1][j];
+                dp[i][j]=max({take,notTake1,notTake2});
+            }
+        }
+
+       return dp[0][0];
+    }  
 
 int main() {
     vector<int> nums1 = {2, 1, -2, 5};
