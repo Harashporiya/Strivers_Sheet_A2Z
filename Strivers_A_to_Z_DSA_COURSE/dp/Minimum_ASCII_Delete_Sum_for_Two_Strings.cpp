@@ -36,8 +36,30 @@ int f(int i,int j,string s1,string s2, vector<vector<int>>& dp){
 int minimumDeleteSum(string s1,string s2){
      int n=s1.size();
     int m=s2.size();
-    vector<vector<int>> dp(n+1,vector<int>(m+1,-1));
-    return f(0,0,s1,s2,dp);
+    vector<vector<int>> dp(n+1,vector<int>(m+1,0));
+
+    for(int i=1;i<=n;i++){
+     dp[i][0]=s1[i-1]+dp[i-1][0];
+    }
+
+    for(int i=1;i<=m;i++){
+     dp[0][i]=s2[i-1]+dp[0][i-1];
+    }
+
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            if(s1[i-1]==s2[j-1]){
+                 dp[i][j]=dp[i-1][j-1];
+            }else{
+                int d1=s1[i-1]+dp[i-1][j];
+                int d2=s2[j-1]+dp[i][j-1];
+
+                dp[i][j]=min(d1,d2);
+            }
+        }
+    }
+
+    return dp[n][m];
 }
 int main(){
     string s1="sea";
