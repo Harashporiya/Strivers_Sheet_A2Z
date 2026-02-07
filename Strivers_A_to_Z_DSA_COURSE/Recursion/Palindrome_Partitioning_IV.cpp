@@ -1,25 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool f(int ind,string s,int p,vector<vector<bool>> &checkPal,vector<vector<int>>&dp){
-    if(ind==s.size() && p==3){
-        
-        return true;
-    }
-    if (ind == s.size() || p == 3) return false;
-
-    if(dp[ind][p]!=-1){
-        return dp[ind][p];
-    }
-     for(int i=ind;i<s.size();i++){
-        if(checkPal[ind][i]){
-            if(f(i+1,s,p+1,checkPal,dp)==true){
-                return dp[ind][p]=true;
-            }
-        }
-     }
-     return dp[ind][p]=false;
-}
 bool checkPartitioning(string s) {
         int n=s.size();
         vector<vector<bool>> checkPal(n,vector<bool>(n,false));
@@ -32,12 +13,21 @@ bool checkPartitioning(string s) {
             }
         }
          int p=0;
-         vector<vector<int>> dp(n,vector<int>(3+1,-1));
+         vector<vector<int>> dp(n+1,vector<int>(3+1,false));
+         dp[n][3]=true;
         // int c=INT_MAX;
-        if(f(0,s,p,checkPal,dp)){
-            return true;
+         
+         for (int i = n - 1; i >= 0; i--) {
+        for (int p = 0; p < 3; p++) {
+            for (int j = i; j < n; j++) {
+                if (checkPal[i][j] && dp[j + 1][p + 1]) {
+                    dp[i][p] = true;
+                    break;
+                }
+            }
         }
-        return false;
+    }
+    return dp[0][0];
 }
 
 int main(){
