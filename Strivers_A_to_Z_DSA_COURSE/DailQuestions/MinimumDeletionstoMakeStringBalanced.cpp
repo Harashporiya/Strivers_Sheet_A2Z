@@ -1,19 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 int minimumDeletions(string s){
-    stack<char> st;
-    int cnt=0;
-    for(auto c:s){
-        if(c=='b'){
-            st.push(c);
+  int bcount=0;
+      int ans=0;
+
+      for(int i=0;i<s.size();i++){
+        if(s[i]=='a'){
+            ans=min(ans+1,bcount);
         }else{
-            if(!st.empty()){
-                st.pop();
-                cnt++;
-            }
+            bcount++;
         }
-    }
-    return cnt;
+      }
+      return ans;
 }
 int main(){
     string s;
